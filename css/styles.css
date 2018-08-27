@@ -1,21 +1,35 @@
 @charset "utf-8";
 /* CSS Document */
 
+html {
+  box-sizing: border-box;
+}
+*, *:before, *:after {
+  box-sizing: inherit;
+}
+
 body,td,th,p{
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: 10pt;
+	font-size: 12pt;
 	color: #333;
 	line-height: 1.5;
 }
 body {
 	background-color: #fdfdfd;
 	margin: 0;
+	padding: 0;
 	position:relative;
+	width: 100%;
+	height: 100%;
+	overflow-x: hidden !important;
 }
 ul, li {
 	font-family: Arial, Helvetica, sans-serif;
+	list-style: none;
 	font-size: 10pt;
 	color: #333;
+	padding: 0;
+	margin: 0;
 }
 a {
 	color: orange;
@@ -28,6 +42,13 @@ a:hover, a:focus {
 a img{
 	border: none 0px #fff;
 }
+
+.container {
+  display: flex;
+  flex-wrap: wrap;
+  min-width: 320px;
+}
+
 h1, h2, h3, h4, h5, h6 {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0 0 20px;
@@ -48,9 +69,40 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
   text-align: center;
   text-transform: uppercase;
 }
+
+/*  SECTIONS  */
+.section {
+	clear: both;
+	padding: 0px;
+	margin: 0px;
+}
+
+/*  COLUMN SETUP  */
+.col {
+	display: block;
+	float:left;
+	margin: 1% 0 1% 1.6%;
+}
+.col:first-child { margin-left: 0; }
+
+/*  GROUPING
+.group:before,
+.group:after { content:""; display:table; }
+.group:after { clear:both;}
+.group { zoom:1; /* For IE 6/7 */ }
+*/
+
+/*  GO FULL WIDTH AT LESS THAN 480 PIXELS */
+
+@media only screen and (max-width: 480px) {
+	.col { margin: 1% 0 1% 0%;}
+	.span_3_of_3, .span_2_of_3, .span_1_of_3 { width: 100%; }
+}
+
 /* ====================== Navigation ====================== */
 nav {
   width: 100%;
+	max-width: 100%;
   height: 80px;
   background-color: #252831;
   text-align:center;
@@ -103,11 +155,35 @@ nav h1 a {
   width: 100%;
   background-color: #ccc;
 }
+
+#maincontent #map-container {
+  height: 400px;
+  width: 100%;
+  background-color: #ccc;
+}
+
+#maincontent-top > #map-container, #maincontent-top > #map-container > #map {
+  height: 200px;
+}
+
+.inside #map-container {
+  background: blue none repeat scroll 0 0;
+  width: 100%;
+}
+
+@media (min-width:700px)  {
+  #maincontent-top > #map-container, #maincontent-top > #map-container > #map {
+    height: 660px;
+  }
+ }
 /* ====================== Restaurant Filtering ====================== */
 .filter-options {
+	display: flex;
   width: 100%;
   height: 50px;
   background-color: #3397DB;
+	flex-grow: 1;
+	flex-direction: column;
   align-items: center;
 }
 .filter-options h2 {
@@ -131,29 +207,31 @@ nav h1 a {
 
 /* ====================== Restaurant Listing ====================== */
 #restaurants-list {
-  background-color: #f3f3f3;
-  list-style: outside none none;
-  margin: 0;
-  padding: 30px 15px 60px;
-  text-align: center;
+		display: flex;
+	  flex-wrap: wrap;
+	  justify-content: space-around;
+	  align-items: center;
+	  background-color: #f3f3f3;
+	  list-style: outside none none;
+	  margin: 0;
+	  text-align: center;
 }
 #restaurants-list li {
   background-color: #fff;
   border: 2px solid #ccc;
   font-family: Arial,sans-serif;
-  margin: 15px;
   min-height: 380px;
-  padding: 0 30px 25px;
+  padding: 0 4px 4px;
   text-align: left;
-  width: 270px;
+  max-width: 100%;
+	display: flex;
+	flex-direction: column;
 }
 #restaurants-list .restaurant-img {
   background-color: #ccc;
   display: block;
   margin: 0;
-  max-width: 100%;
-  min-height: 248px;
-  min-width: 100%;
+	width: 100%;
 }
 #restaurants-list li h1 {
   color: #f18200;
@@ -237,13 +315,21 @@ nav h1 a {
 	width: 90%;
 }
 #restaurant-container, #reviews-container {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
   border-bottom: 1px solid #d9d9d9;
   border-top: 1px solid #fff;
   padding: 140px 40px 30px;
   width: 50%;
 }
 #reviews-container {
-  padding: 30px 40px 80px;
+  /*padding: 30px 40px 80px;*/
+	color: #444;
+	font-size: 24pt;
+	font-weight: 300;
+	letter-spacing: -1px;
+	padding-bottom: 1pt;
 }
 #reviews-container h2 {
   color: #f58500;
@@ -255,6 +341,9 @@ nav h1 a {
 #reviews-list {
   margin: 0;
   padding: 0;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
 }
 #reviews-list li {
   background-color: #fff;
@@ -273,3 +362,13 @@ nav h1 a {
 #restaurant-hours td {
   color: #666;
 }
+
+#maincontent-top {
+  display: flex;
+  flex-direction: column;
+}
+
+@media (min-width:700px)  {
+  #maincontent-top {
+    flex-direction: row-reverse;
+  }
