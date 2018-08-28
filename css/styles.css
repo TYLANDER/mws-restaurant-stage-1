@@ -284,6 +284,7 @@ margin-left: auto;
   width: 100%;
   background-color: #ccc;
 	margin-bottom: 2rem;
+	display:block;
 }
 
 #maincontent #map-container {
@@ -297,7 +298,6 @@ margin-left: auto;
 }
 
 .inside #map-container {
-  background: blue none repeat scroll 0 0;
   width: 100%;
 }
 
@@ -408,11 +408,10 @@ margin-left: auto;
 }
 .inside #map-container {
   background: blue none repeat scroll 0 0;
-  height: 87%;
-  position: fixed;
-  right: 0;
-  top: 80px;
+  height: 87%;;
+  right: 0;;
   width: 50%;
+	display: block;
 }
 .inside #map {
   background-color: #ccc;
