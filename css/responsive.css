@@ -4,7 +4,7 @@
 @media only screen and (min-device-width: 320px) and (max-device-width: 502px) {
 
 	.filter-selects {
-		margin: 0px 30px;
+		margin: 1rem;
 	}
 
 	#restaurant-container{
@@ -24,13 +24,17 @@
 		width: auto;
 	}
 
+  #restaurants-list li {
+    max-width: 100%;
+  }
+
 }
 
-@media screen and (min-width: 503px) {
+@media screen and (min-device-width: 503px) and (max-device-width: 899px) {
 
-	#restaurants-list li {
-    max-width: 100%;
-	}
+  #restaurants-list li {
+    max-width: 50%;
+  }
 
 	#restaurant-address {
 		font-size: 12pt;
@@ -49,7 +53,7 @@
 	}
 
 	#restaurants-list li {
-	  max-width: 25%;
+	  max-width: 33%;
 	}
 
 }

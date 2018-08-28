@@ -68,6 +68,7 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
   padding: 25px;
   text-align: center;
   text-transform: uppercase;
+	width: 100%;
 }
 
 /*  SECTIONS  */
@@ -101,12 +102,20 @@ article, aside, canvas, details, figcaption, figure, footer, header, hgroup, men
 
 /* ====================== Navigation ====================== */
 nav {
-  width: 100%;
-	max-width: 100%;
+  width: 25rem;
   height: 80px;
+	margin: auto;
   background-color: #252831;
   text-align:center;
+	display: block;
+	flex-wrap: wrap;
+	-webkit-box-sizing: border-box;
+	box-sizing: border-box;
+	overflow: auto;
+	position: relative;
 }
+/* I'm at a loss for how make this nav box appear at full-width */
+
 nav h1 {
   margin: auto;
 }
@@ -116,6 +125,7 @@ nav h1 a {
   font-weight: 200;
   letter-spacing: 10px;
   text-transform: uppercase;
+	margin: auto;
 }
 #breadcrumb {
     padding: 10px 40px 16px;
@@ -149,11 +159,131 @@ nav h1 a {
     color: #01447e;
     text-decoration: underline;
 }
+
+/* ============= RESPONSIVE NAV CSS =============*/
+
+.dib.di  {
+    /*display: inline-block;*/
+}
+
+.fw6 {
+    font-weight: 600;
+}
+
+.tracked {
+    letter-spacing: .1em;
+}
+
+.link {
+    text-decoration: none;
+    transition: color .15s ease-in;
+}
+
+.link:link, .link:visited {
+    transition: color .15s ease-in;
+}
+
+.link:hover {
+    transition: color .15s ease-in;
+}
+
+.link:active {
+    transition: color .15s ease-in;
+}
+
+.link:focus {
+    transition: color .15s ease-in;
+    outline: 1px dotted currentColor;
+}
+
+.w-100 {
+	display: block;
+margin-left: auto;
+	margin-right: auto;
+	width: 100%;
+}
+
+
+.white {
+    color: #fff;
+}
+
+.bg-black-90 {
+    background-color: rgba(0, 0, 0, .9);
+}
+
+.pv3 {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+}
+
+.pa3 {
+	padding: 2rem;
+}
+
+.ph3 {
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.mr3 {
+    margin-right: 1rem;
+}
+
+.ttu {
+    text-transform: uppercase;
+}
+
+.f6 {
+    font-size: .875rem;
+}
+
+.dib {
+    display: inline-block;
+}
+
+.dim {
+    opacity: 1;
+    transition: opacity .15s ease-in;
+}
+
+.dim:hover, .dim:focus {
+    opacity: .5;
+    transition: opacity .15s ease-in;
+}
+
+.dim:active {
+    opacity: .8;
+    transition: opacity .15s ease-out;
+}
+
+@media screen and (min-width: 30em) {
+    .pv4-ns {
+        padding-top: 2rem;
+        padding-bottom: 2rem;
+    }
+}
+
+@media screen and (min-width: 30em) and (max-width: 60em) {
+    .ph4-m {
+        padding-left: 2rem;
+        padding-right: 2rem;
+    }
+}
+
+@media screen and (min-width: 60em) {
+    .ph5-l {
+        padding-left: 4rem;
+        padding-right: 4rem;
+    }
+}
+
 /* ====================== Map ====================== */
 #map {
-  height: 400px;
+  height: 100%;
   width: 100%;
   background-color: #ccc;
+	margin-bottom: 2rem;
 }
 
 #maincontent #map-container {
@@ -180,11 +310,12 @@ nav h1 a {
 .filter-options {
 	display: flex;
   width: 100%;
-  height: 50px;
+  height: 9em;
   background-color: #3397DB;
 	flex-grow: 1;
 	flex-direction: column;
   align-items: center;
+	padding: 1em;
 }
 .filter-options h2 {
   color: white;
@@ -198,11 +329,19 @@ nav h1 a {
   border: 1px solid #fff;
   font-family: Arial,sans-serif;
   font-size: 11pt;
-  height: 35px;
+  height: 2em;
   letter-spacing: 0;
   margin: 10px;
   padding: 0 10px;
+	padding-top: 10px;
   width: 200px;
+}
+
+#neighborhoods-select {
+	height: 36px;
+}
+#cuisines-select {
+	height: 36px;
 }
 
 /* ====================== Restaurant Listing ====================== */
@@ -283,7 +422,7 @@ nav h1 a {
 .inside #footer {
   bottom: 0;
   position: absolute;
-  width: 50%;
+  width: 100%;
 }
 #restaurant-name {
   color: #f18200;
@@ -297,6 +436,7 @@ nav h1 a {
 }
 #restaurant-img {
 	width: 90%;
+	padding: 2rem;
 }
 #restaurant-address {
   font-size: 12pt;
@@ -321,7 +461,7 @@ nav h1 a {
   border-bottom: 1px solid #d9d9d9;
   border-top: 1px solid #fff;
   padding: 140px 40px 30px;
-  width: 50%;
+  width: 100%;
 }
 #reviews-container {
   /*padding: 30px 40px 80px;*/
