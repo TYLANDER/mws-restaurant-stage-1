@@ -8,6 +8,7 @@ html {
   box-sizing: inherit;
 }
 
+
 body,td,th,p{
 	font-family: Arial, Helvetica, sans-serif;
 	font-size: 12pt;
@@ -42,12 +43,13 @@ a:hover, a:focus {
 a img{
 	border: none 0px #fff;
 }
-
+/*
 .container {
   display: flex;
   flex-wrap: wrap;
   min-width: 320px;
 }
+*/
 
 h1, h2, h3, h4, h5, h6 {
   font-family: Arial, Helvetica, sans-serif;
@@ -107,12 +109,12 @@ nav {
 	margin: auto;
   background-color: #252831;
   text-align:center;
-	display: block;
+	display: flex;
 	flex-wrap: wrap;
 	-webkit-box-sizing: border-box;
 	box-sizing: border-box;
 	overflow: auto;
-	position: relative;
+
 }
 /* I'm at a loss for how make this nav box appear at full-width */
 
@@ -197,7 +199,6 @@ nav h1 a {
 }
 
 .w-100 {
-	display: block;
 margin-left: auto;
 	margin-right: auto;
 	width: 100%;

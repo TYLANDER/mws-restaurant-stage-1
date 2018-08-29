@@ -198,3 +198,25 @@ addMarkersToMap = (restaurants = self.restaurants) => {
   });
 
 }
+
+/**
+* Cache Files with the Service Worker
+*/
+self.addEventListener('install', function(event) {
+  event.waitUntil(
+    caches.open(cacheName).then(function(cache) {
+      return cache.addAll(
+        [
+          '../css/responsive.css',
+          '../css/styles.css',
+          '/dbhelper.js',
+          '/restaurant_info.js',
+          '../offline.html',
+          '../index.html',
+          '../data/restaurants.json',
+          '../restaurant.html'
+        ]
+      );
+    })
+  );
+});
