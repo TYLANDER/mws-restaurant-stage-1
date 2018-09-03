@@ -199,24 +199,18 @@ addMarkersToMap = (restaurants = self.restaurants) => {
 
 }
 
+
 /**
-* Cache Files with the Service Worker
+* Service Worker Registration
 */
-self.addEventListener('install', function(event) {
-  event.waitUntil(
-    caches.open(cacheName).then(function(cache) {
-      return cache.addAll(
-        [
-          '../css/responsive.css',
-          '../css/styles.css',
-          '/dbhelper.js',
-          '/restaurant_info.js',
-          '../offline.html',
-          '../index.html',
-          '../data/restaurants.json',
-          '../restaurant.html'
-        ]
-      );
-    })
-  );
-});
+if ('serviceWorker' in navigator) {
+  window.addEventListener('load', function() {
+    navigator.serviceWorker.register('js/sw.js').then(function(registration) {
+      // Registration was successful
+      console.log('ServiceWorker registration successful with scope: ', registration.scope);
+    }, function(err) {
+      // registration failed :(
+      console.log('ServiceWorker registration failed: ', err);
+    });
+  });
+}
