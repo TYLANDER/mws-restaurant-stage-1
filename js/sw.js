@@ -1,13 +1,15 @@
-var CACHE_NAME = 'tylers-cache';
+const cacheAvailable = 'caches' in self;
+
+var CACHE_NAME = 'my-site-cache-v1';
 var urlsToCache = [
   '../css/styles.css',
   '../css/responsive.css',
-  '../dbhelper.js',
+  '/dbhelper.js',
   '/restaurant_info.js',
   '../offline.html',
   '../index.html',
   '../data/restaurants.json',
-  '../restaurant.html',
+  '../restaurant.html'
 
 ];
 
